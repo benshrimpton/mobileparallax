@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<style>
+	.spacer {
+		height:  700px;
+		background: silver;
+	}
+	.outer {
+		border: solid 1px red;
+		position: relative;
+		height: 300px;
+		overflow: hidden;
+		width: 414px;
+		margin: 0 auto;
+	}
+	.inner_one {
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		clip: rect(0, auto, auto, 0);
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		text-align: center;
+	}
+	.inner_two {
+		top: 44px;
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 414px;
+		height: 736px;
+	}
+	.inner_two img {
+		position: absolute;
+		top:0;
+		left: 0;
+	}
+</style>
+</head>
+<body>
+<div class="spacer"></div>
+
+<div class="outer">
+	<div class="inner_one">
+		<div class="inner_two">
+<img src="https://tpc.googlesyndication.com/simgad/13323936176757756040">
+		</div>
+</div>
+</div>
+<div class="spacer"></div>
+</body>
