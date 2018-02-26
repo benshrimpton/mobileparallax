@@ -5,14 +5,14 @@
 <style>
 	.spacer {
 		height:  700px;
-		background: silver;
+		background: gray;
 	}
 	.outer {
-		border: solid 1px red;
+		border: solid 3px red;
 		position: relative;
-		height: 300px;
+		min-height: 45vh;
 		overflow: hidden;
-		width: 414px;
+/* 		width: 414px; */
 		margin: 0 auto;
 	}
 	.inner_one {
@@ -26,17 +26,24 @@
 		text-align: center;
 	}
 	.inner_two {
-		top: 44px;
+		top: 0;
 		position: fixed;
 		left: 50%;
 		transform: translateX(-50%);
-		width: 414px;
-		height: 736px;
+/* 		width: 414px; */
+/* 		height: 736px; */
 	}
 	.inner_two img {
+/*
 		position: absolute;
 		top:0;
 		left: 0;
+*/
+	}
+	@media(max-width: 800px){
+		.outer {
+			min-height: 85vh;
+		}
 	}
 </style>
 </head>
@@ -46,7 +53,7 @@
 <div class="outer">
 	<div class="inner_one">
 		<div class="inner_two">
-<img src="https://tpc.googlesyndication.com/simgad/13323936176757756040">
+			<img src="https://tpc.googlesyndication.com/simgad/15991920134703170182">
 		</div>
 </div>
 </div>
