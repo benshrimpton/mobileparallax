@@ -1,61 +1,147 @@
 <!DOCTYPE html>
-
+<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <style>
-	.spacer {
-		height:  700px;
-		background: gray;
+body, html {margin: 0; padding: 0}
+.spacer {
+	height:  700px;
+	background: gray;
+}
+.parallax-ad__outer {
+	position: relative;
+	min-height: 45vh;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.parallax-ad__inner_one {
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	clip: rect(0, auto, auto, 0);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	text-align: center;
+}
+.parallax-ad__inner_two {
+	top: 0;
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+/* 	opacity: 0; */
+	transition: opacity ease 1s;
+}
+.parallax-ad__inner_two img {
+
+}
+.parallax-ad__link {
+	display: block;
+}
+.parallax-ad__logo {
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  z-index: 999;
+  transform: translateY(-50%);
+  width: 300px;	
+/*   opacity: 0; */
+	transition: opacity ease 1s;
+}
+.parallax-ad__logo img {width: 100%; display: block}
+
+@media(max-width: 800px){
+	.parallax-ad__outer {
+		min-height: 75vh;
 	}
-	.outer {
-		border: solid 3px red;
-		position: relative;
-		min-height: 45vh;
-		overflow: hidden;
-/* 		width: 414px; */
-		margin: 0 auto;
-	}
-	.inner_one {
-		left: 0;
-		right: 0;
-		margin: 0 auto;
-		clip: rect(0, auto, auto, 0);
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		text-align: center;
-	}
-	.inner_two {
-		top: 0;
-		position: fixed;
-		left: 50%;
-		transform: translateX(-50%);
-/* 		width: 414px; */
-/* 		height: 736px; */
-	}
-	.inner_two img {
-/*
-		position: absolute;
-		top:0;
-		left: 0;
-*/
-	}
-	@media(max-width: 800px){
-		.outer {
-			min-height: 85vh;
-		}
-	}
+}
 </style>
 </head>
 <body>
 <div class="spacer"></div>
 
-<div class="outer">
-	<div class="inner_one">
-		<div class="inner_two">
-			<img src="https://tpc.googlesyndication.com/simgad/15991920134703170182">
+<section class="parallax-ad__outer">
+	<div class="parallax-ad__logo">
+		<img src="http://s3.amazonaws.com/djwp/wp-content/uploads/2018/02/05150413/CalvinKlein_205_Stacked_logo_white.png">
+	</div>
+	<div class="parallax-ad__inner_one">
+		<div class="parallax-ad__inner_two">
+			<a href="" class="parallax-ad__link">
+				<img
+					src=""
+					data-desktop="http://s3.amazonaws.com/djwp/wp-content/uploads/2018/02/05150411/2-Copy%401x.jpg"
+					data-mobile="http://s3.amazonaws.com/djwp/wp-content/uploads/2018/02/05150421/CK-LP-PARALLAX-NO-LOGO-02%401xMOBILE.jpg"
+					class="parallax-ad__img">
+			</a>
 		</div>
-</div>
-</div>
+	</div>
+</section>
+
 <div class="spacer"></div>
+
+<section class="parallax-ad__outer">
+	<div class="parallax-ad__logo">
+		<img src="http://s3.amazonaws.com/djwp/wp-content/uploads/2018/02/05150413/CalvinKlein_205_Stacked_logo_white.png">
+	</div>
+	<div class="parallax-ad__inner_one">
+		<div class="parallax-ad__inner_two">
+			<a href="" class="parallax-ad__link">
+				<img
+					src=""
+					data-desktop="http://s3.amazonaws.com/djwp/wp-content/uploads/2018/02/05150411/2-Copy%401x.jpg"
+					data-mobile="http://s3.amazonaws.com/djwp/wp-content/uploads/2018/02/05150421/CK-LP-PARALLAX-NO-LOGO-02%401xMOBILE.jpg"
+					class="parallax-ad__img">
+			</a>
+		</div>
+	</div>
+</section>
+
+<div class="spacer"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script>
+/*
+	$pWrapper = $('.parallax-ad__outer');
+
+	$pWrapper.each(function(){
+		$p_logo = $(this).find('.parallax-ad__logo');
+		$p = $(this).find('.parallax-ad__inner_two');
+		$p_logo.imagesLoaded(function(){
+			console.log($(this));
+			$(this).addClass('images-loaded');
+		});
+		$p.imagesLoaded(function(){
+			console.log($(this));
+			$(this).addClass('images-loaded');
+		});
+	});
+*/
+function setParallaxImageSizes(){
+	w = $(window).width()
+	console.log( $(window).width() )
+	pImg = $('.parallax-ad__img');
+
+	pImg.each(function(){
+		pImgMobile = $(this).data('mobile')
+		pImgDesktop = $(this).data('desktop') 
+		if(w <= 768){
+			pImg.attr('src', pImgMobile );
+			console.log("Mobile image src : " + pImgMobile)
+			
+		}
+		else {
+			pImg.attr('src', pImgDesktop )
+			console.log("Desktop image src : " + pImgDesktop)
+			
+		}
+	});
+}	
+setParallaxImageSizes();
+$(window).on('resize', function(){
+	setParallaxImageSizes();
+});
+</script>
 </body>
+</html>
